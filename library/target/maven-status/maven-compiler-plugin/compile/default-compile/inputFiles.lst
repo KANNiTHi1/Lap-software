@@ -1,21 +1,9 @@
-<<<<<<< HEAD
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\controllers\LibraryController.java
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\LibraryApplication.java
+E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\model\Book.java
+E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\model\BorrowingRecord.java
+E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\model\Member.java
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\models\Book.java
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\models\BorrowingRecord.java
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\models\Member.java
-E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\services\LibraryService.java
-=======
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\controllers\BookController.java
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\controllers\BorrowingController.java
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\controllers\LibraryController.java
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\controllers\MemberController.java
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\LibraryApplication.java
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\model\Book.java
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\model\BorrowingRecord.java
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\model\Member.java
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\models\Book.java
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\models\BorrowingRecord.java
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\models\Member.java
-D:\Software\lab\Lap-software\library\src\main\java\com\app\library\service\LibraryService.java
->>>>>>> cf1af23144f868e7f3e22cd188919eec0e70f94c
+E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\service\LibraryService.java
