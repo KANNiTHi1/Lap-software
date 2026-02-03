@@ -1,4 +1,5 @@
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\controllers\LibraryController.java
+E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\controllers\PageController.java
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\LibraryApplication.java
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\model\Book.java
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\model\BorrowingRecord.java
@@ -6,4 +7,5 @@ E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-s
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\models\Book.java
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\models\BorrowingRecord.java
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\models\Member.java
+E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\service\BookClientService.java
 E:\Year2, Team2\วิศวกรรมซอฟแวร์\Lap-software\Lap-software\library\src\main\java\com\app\library\service\LibraryService.java
