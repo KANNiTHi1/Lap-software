@@ -1,7 +1,8 @@
-package com.app.library.controller;
+package com.app.library.controllers;
 
 import com.app.library.model.Book;
 import com.app.library.service.LibraryService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,31 +17,14 @@ public class BookController {
         this.libraryService = libraryService;
     }
 
-    // GET all books
     @GetMapping
     public List<Book> getAllBooks() {
         return libraryService.getAllBooks();
     }
 
-    // POST add book
     @PostMapping
-    public Book addBook(@RequestBody Book book) {
+    public ResponseEntity<String> addBook(@RequestBody Book book) {
         libraryService.addBook(book);
-        return book;
-    }
-
-    // PUT update book
-    @PutMapping("/{id}")
-    public Book updateBook(@PathVariable Long id, @RequestBody Book book) {
-        book.setId(id);
-        libraryService.updateBook(book);
-        return book;
-    }
-
-    // ✅ DELETE book
-    @DeleteMapping("/{id}")
-    public void deleteBook(@PathVariable Long id) {
-        libraryService.deleteBook(id);
+        return ResponseEntity.ok("Book added successfully");
     }
 }
-//
