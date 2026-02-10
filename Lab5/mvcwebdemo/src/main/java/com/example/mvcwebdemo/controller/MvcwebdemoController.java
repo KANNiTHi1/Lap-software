@@ -9,25 +9,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MvcwebdemoController {
 
+	// หน้าแรก
 	@GetMapping("/")
 	public String home(Model model) {
 		model.addAttribute("message", "Let's get started");
-		return "index";
+		return "index"; // templates/index.html
 	}
 
+	// หน้าแบบฟอร์มลงทะเบียน
 	@GetMapping("/registration")
 	public String registration() {
-		return "registration";
+		return "registration"; // templates/registration.html
 	}
 
+	// รับข้อมูลจากแบบฟอร์มและไปหน้า success
 	@PostMapping("/register")
-	public String handleRegister(
-			@RequestParam("name") String name,
+	public String handleRegister(@RequestParam("name") String name,
 			@RequestParam("email") String email,
 			Model model) {
 
 		model.addAttribute("name", name);
 		model.addAttribute("email", email);
-		return "registration_success";
+		return "registration_success"; // templates/registration_success.html
 	}
 }

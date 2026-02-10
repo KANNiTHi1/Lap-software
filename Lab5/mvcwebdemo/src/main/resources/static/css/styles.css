@@ -1,0 +1,141 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column; /* ทำให้ body เป็นคอลัมน์ */
+  min-height: 100vh; /* สูงเต็มหน้าจอ */
+}
+
+/* Container for aside and main */
+.container {
+  display: flex;
+  flex: 1; /* กินพื้นที่ที่เหลือ */
+}
+
+/* Aside (Navigation Bar) */
+aside {
+  width: 200px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+aside nav ul {
+  list-style-type: none;
+}
+
+aside nav ul li {
+  margin-bottom: 15px;
+}
+
+aside a {
+  color: white;
+  font-size: 25px;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease-in-out; /* effect ตอน hover */
+  margin: 5px;
+}
+
+aside a:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+main h1 {
+  margin-bottom: 20px;
+}
+
+main a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+main a:hover {
+  background-color: #218838;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* -------- Form Styling (Registration / Success) -------- */
+.form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 480px;
+  margin: 30px auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
