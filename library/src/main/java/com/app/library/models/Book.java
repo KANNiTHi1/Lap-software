@@ -1,9 +1,7 @@
 package com.app.library.models;
 
 public class Book {
-
     private Long id;
-
     private String title;
     private String author;
     private int publicationYear;
@@ -11,7 +9,8 @@ public class Book {
     private int availableCopies;
 
     // Default constructor
-    public Book() {}
+    public Book() {
+    }
 
     // Parameterized constructor
     public Book(String title, String author, int publicationYear, String genre, int availableCopies) {

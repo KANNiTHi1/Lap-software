@@ -6,20 +6,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class BorrowingRecord {
 
-	private Long id;
+    private Long id;
 
-	@JsonProperty("bookId")
-	private Long bookId;
-    
-	@JsonProperty("memberId")
-	private Long memberId;
+    @JsonProperty("bookId")
+    private Long bookId;
+
+    @JsonProperty("memberId")
+    private Long memberId;
 
     private LocalDate borrowDate;
     private LocalDate returnDate;
     private LocalDate dueDate;
 
     // Default constructor
-    public BorrowingRecord() {}
+    public BorrowingRecord() {
+    }
 
     // Parameterized constructor
     public BorrowingRecord(Long bookId, Long memberId, LocalDate borrowDate, LocalDate dueDate) {
@@ -79,6 +80,7 @@ public class BorrowingRecord {
     }
 
     // toString
+    // All Methods
     @Override
     public String toString() {
         return "BorrowingRecord{" +
