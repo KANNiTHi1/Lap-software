@@ -1,0 +1,14 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+  <aside class="sidebar" th:fragment="leftbar(activeLeft)">
+    <nav class="nav flex-column">
+      <a class="nav-link" th:classappend="${activeLeft}=='home' ? ' active'"      th:href="@{/}">Home</a>
+      <a class="nav-link" th:classappend="${activeLeft}=='about' ? ' active'"     th:href="@{/about}">About</a>
+      <a class="nav-link" th:classappend="${activeLeft}=='services' ? ' active'"  th:href="@{/services}">Services</a>
+      <a class="nav-link" th:classappend="${activeLeft}=='contact' ? ' active'"   th:href="@{/contact}">Contact</a>
+      <a class="nav-link" th:classappend="${activeLeft}=='registrants' ? ' active'" th:href="@{/registrants}">Registrants</a>
+    </nav>
+  </aside>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "MvcwebdemoApplication",
+            "request": "launch",
+            "mainClass": "com.example.mvcwebdemo.MvcwebdemoApplication",
+            "projectName": "mvcwebdemo"
+        },
+        {
+            "type": "java",
+            "name": "MvcwebdemoApplication",
+            "request": "launch",
+            "mainClass": "com.example.mvcwebdemo.controller.MvcwebdemoApplication",
+            "projectName": "mvcwebdemo"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MvcwebdemoApplication<mvcwebdemo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.MvcwebdemoApplication",
+            "projectName": "mvcwebdemo",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

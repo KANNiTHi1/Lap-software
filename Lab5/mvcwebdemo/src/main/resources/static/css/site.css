@@ -1,0 +1,30 @@
+body { min-height: 100vh; }
+.sidebar {
+  width: 220px;
+  background: #2d3436;
+  color: #fff;
+  position: fixed;
+  top: 56px; /* สูงเท่า navbar */
+  bottom: 0;
+  left: 0;
+  padding: 1rem 0.75rem;
+  overflow-y: auto;
+}
+.sidebar .nav-link {
+  color: #fff;
+  padding: .5rem .75rem;
+  border-radius: .25rem;
+}
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active { background: #3f4648; }
+
+.main-content {
+  margin-top: 56px;  /* หลบ navbar */
+  margin-left: 220px;/* หลบ sidebar */
+  padding: 1rem 1.25rem;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar { position: static; width: 100%; top: 0; }
+  .main-content { margin-left: 0; }
+}
