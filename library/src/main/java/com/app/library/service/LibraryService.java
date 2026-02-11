@@ -1,15 +1,15 @@
 package com.app.library.service;
 
-import com.app.library.model.Book;
-import com.app.library.model.Member;
-import com.app.library.model.BorrowingRecord;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+
+import com.app.library.model.Book;
+import com.app.library.model.BorrowingRecord;
+import com.app.library.model.Member;
 
 @Service
 public class LibraryService {
@@ -19,20 +19,25 @@ public class LibraryService {
     private List<Member> members = new ArrayList<>();
     private List<BorrowingRecord> borrowingRecords = new ArrayList<>();
 
+    // ==================== ID Counters ==========================
+    private Long bookIdCounter = 1L;
+    private Long memberIdCounter = 1L;
+    private Long recordIdCounter = 1L;
+
     // ==========================================================
     // ==================== Helper Methods =======================
     // ==========================================================
 
     private boolean bookIdExists(Long id) {
-        return books.stream().anyMatch(b -> b.getId().equals(id));
+        return books.stream().anyMatch(b -> b.getId() != null && b.getId().equals(id));
     }
 
     private boolean memberIdExists(Long id) {
-        return members.stream().anyMatch(m -> m.getId().equals(id));
+        return members.stream().anyMatch(m -> m.getId() != null && m.getId().equals(id));
     }
 
     private boolean recordIdExists(Long id) {
-        return borrowingRecords.stream().anyMatch(r -> r.getId().equals(id));
+        return borrowingRecords.stream().anyMatch(r -> r.getId() != null && r.getId().equals(id));
     }
 
     // ==========================================================
@@ -51,18 +56,28 @@ public class LibraryService {
                 .findFirst();
     }
 
+    // ✅ รองรับทั้งส่ง id มาเอง และไม่ส่ง id
     public void addBook(Book book) {
 
         if (book == null) {
             throw new IllegalArgumentException("Book cannot be null.");
         }
 
-        if (book.getId() == null) {
-            throw new IllegalArgumentException("Book id is required.");
-        }
+        // ถ้าผู้ใช้ส่ง id มาเอง
+        if (book.getId() != null) {
 
-        if (bookIdExists(book.getId())) {
-            throw new IllegalArgumentException("Book id already exists: " + book.getId());
+            if (bookIdExists(book.getId())) {
+                throw new IllegalArgumentException("Book id already exists: " + book.getId());
+            }
+
+            // ปรับ counter เพื่อไม่ให้ generate id ชนในอนาคต
+            if (book.getId() >= bookIdCounter) {
+                bookIdCounter = book.getId() + 1;
+            }
+
+        } else {
+            // ถ้าไม่ได้ส่ง id มา -> generate id ให้เอง
+            book.setId(bookIdCounter++);
         }
 
         books.add(book);
@@ -119,18 +134,25 @@ public class LibraryService {
                 .findFirst();
     }
 
+    // ✅ รองรับทั้งส่ง id มาเอง และไม่ส่ง id
     public void addMember(Member member) {
 
         if (member == null) {
             throw new IllegalArgumentException("Member cannot be null.");
         }
 
-        if (member.getId() == null) {
-            throw new IllegalArgumentException("Member id is required.");
-        }
+        if (member.getId() != null) {
 
-        if (memberIdExists(member.getId())) {
-            throw new IllegalArgumentException("Member id already exists: " + member.getId());
+            if (memberIdExists(member.getId())) {
+                throw new IllegalArgumentException("Member id already exists: " + member.getId());
+            }
+
+            if (member.getId() >= memberIdCounter) {
+                memberIdCounter = member.getId() + 1;
+            }
+
+        } else {
+            member.setId(memberIdCounter++);
         }
 
         members.add(member);
@@ -179,18 +201,11 @@ public class LibraryService {
         return borrowingRecords;
     }
 
+    // ✅ รองรับทั้งส่ง record id มาเอง และไม่ส่ง
     public void borrowBook(BorrowingRecord record) {
 
         if (record == null) {
             throw new IllegalArgumentException("BorrowingRecord cannot be null.");
-        }
-
-        if (record.getId() == null) {
-            throw new IllegalArgumentException("BorrowingRecord id is required.");
-        }
-
-        if (recordIdExists(record.getId())) {
-            throw new IllegalArgumentException("BorrowingRecord id already exists: " + record.getId());
         }
 
         if (record.getBook() == null || record.getBook().getId() == null) {
@@ -203,14 +218,31 @@ public class LibraryService {
 
         // ตรวจสอบว่ามี book/member จริงในระบบ
         Book book = getBookById(record.getBook().getId())
-                .orElseThrow(() -> new IllegalArgumentException("Book not found with id: " + record.getBook().getId()));
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Book not found with id: " + record.getBook().getId()));
 
         Member member = getMemberById(record.getMember().getId())
-                .orElseThrow(() -> new IllegalArgumentException("Member not found with id: " + record.getMember().getId()));
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Member not found with id: " + record.getMember().getId()));
 
         // ตรวจสอบจำนวนหนังสือ
         if (book.getAvailableCopies() <= 0) {
             throw new IllegalArgumentException("Book is out of stock. Cannot borrow.");
+        }
+
+        // ถ้าผู้ใช้ส่ง record id มาเอง
+        if (record.getId() != null) {
+
+            if (recordIdExists(record.getId())) {
+                throw new IllegalArgumentException("BorrowingRecord id already exists: " + record.getId());
+            }
+
+            if (record.getId() >= recordIdCounter) {
+                recordIdCounter = record.getId() + 1;
+            }
+
+        } else {
+            record.setId(recordIdCounter++);
         }
 
         // เซ็ตค่าตามระบบ

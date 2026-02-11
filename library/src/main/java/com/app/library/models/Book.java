@@ -10,11 +10,21 @@ public class Book {
     private String genre;
     private int availableCopies;
 
-    // Default constructor
+    // Default constructor (สำคัญสำหรับ JSON -> Object)
     public Book() {}
 
-    // Parameterized constructor
+    // Constructor สำหรับกรณี "ไม่ส่ง id"
     public Book(String title, String author, int publicationYear, String genre, int availableCopies) {
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+        this.genre = genre;
+        this.availableCopies = availableCopies;
+    }
+
+    // Constructor สำหรับกรณี "ส่ง id มาเอง"
+    public Book(Long id, String title, String author, int publicationYear, String genre, int availableCopies) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
